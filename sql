@@ -66,3 +66,9 @@ SELECT label, value
 FROM LabelValueSplit
 ORDER BY rn;
 
+SELECT 
+    your_column,
+    (LENGTH(your_column) - LENGTH(REPLACE(your_column, '[-]', ''))) / (LENGTH('[-]')) AS separator_count
+FROM your_table
+WHERE your_condition;
+
