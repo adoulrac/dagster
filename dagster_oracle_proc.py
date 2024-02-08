@@ -52,3 +52,22 @@ def oracle_procedure_pipeline():
 
 # Note: Replace 'YOUR_CONNECTION_STRING' with the actual Oracle connection string.
 # The connection string format: "username/password@hostname:port/service_name"
+
+# my_dagster_repository.py
+
+from dagster import RepositoryDefinition, daily_schedule
+
+from my_dag import my_dag  # Import your Dag definition
+
+repository = RepositoryDefinition(
+    name='my_repository',
+    pipelines=[my_dag],
+    schedules={
+        'my_daily_schedule': daily_schedule(
+            pipeline_name='my_dag',
+            start_date='2024-01-01',  # Replace with the desired start date
+            execution_timezone='UTC',  # Adjust the timezone accordingly
+            cron_schedule='0 7 * * *',  # Schedule to run at 7 AM every day
+        )
+    },
+)
