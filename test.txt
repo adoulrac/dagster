@@ -53,3 +53,67 @@ kubectl set image deployment/<deployment-name> <container-name>=<new-image>: Upd
 kubectl rollout status deployment/<deployment-name>: Monitor the rollout status.
 kubectl rollout history deployment/<deployment-name>: View rollout history.
 kubectl rollout undo deployment/<deployment-name>: Rollback to the previous deployment.
+
+Configuration and Context:
+Switching Contexts:
+
+kubectl config use-context <context>: Switch to a specific context.
+Setting Default Namespace:
+
+kubectl config set-context --current --namespace=<namespace>: Set the default namespace for the current context.
+Inspection and Troubleshooting:
+Resource Status:
+
+kubectl get events: Display cluster events.
+kubectl top nodes: Show resource usage (CPU/Memory) for nodes.
+kubectl top pods: Display resource usage for pods.
+API Resources:
+
+kubectl api-resources: List all available API resources.
+kubectl api-versions: List all available API versions.
+Network Troubleshooting:
+
+kubectl get svc --all-namespaces: List services in all namespaces.
+kubectl get endpoints <service-name>: Display endpoints for a service.
+kubectl run <pod-name> --image=busybox --rm -it --restart=Never -- sh: Start a temporary pod for debugging.
+Secrets and ConfigMaps:
+Secrets:
+
+kubectl create secret generic <secret-name> --from-literal=key1=value1 --from-literal=key2=value2: Create a secret.
+kubectl get secrets: List all secrets in the current namespace.
+ConfigMaps:
+
+kubectl create configmap <configmap-name> --from-file=path/to/files: Create a ConfigMap from files.
+kubectl get configmaps: List all ConfigMaps in the current namespace.
+Labels and Annotations:
+Labeling Resources:
+
+kubectl label <resource-type> <resource-name> <key>=<value>: Add a label to a resource.
+Annotations:
+
+kubectl annotate <resource-type> <resource-name> key1=value1 key2=value2: Add an annotation to a resource.
+Cluster Management:
+Node Operations:
+
+kubectl drain <node-name>: Mark a node as unschedulable and evict pods.
+kubectl uncordon <node-name>: Make a node schedulable again.
+Cluster Upgrades:
+
+kubectl get nodes: Check the current version of each node.
+kubectl version: Display the Kubernetes version.
+CRDs (Custom Resource Definitions):
+
+kubectl get crd: List all Custom Resource Definitions.
+kubectl get <custom-resource>: List instances of a Custom Resource.
+Advanced Troubleshooting:
+Debugging Running Pods:
+
+kubectl debug <pod-name> --image=<debug-image>: Start a debugging container in a running pod.
+Resource Validation:
+
+kubectl apply --dry-run=client -f <filename.yaml>: Dry-run to validate the configuration without applying it.
+
+kubectl get deployments --show-labels
+kubectl get pods --show-labels
+kubectl get services --show-labels
+...
