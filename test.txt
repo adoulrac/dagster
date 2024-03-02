@@ -1,0 +1,55 @@
+Basics:
+Get Information:
+
+kubectl cluster-info: Display cluster info.
+kubectl get nodes: Show all nodes in the cluster.
+kubectl get pods --all-namespaces: List all pods in all namespaces.
+Namespace Operations:
+
+kubectl get namespaces: List all namespaces.
+kubectl create namespace <namespace>: Create a new namespace.
+kubectl delete namespace <namespace>: Delete a namespace.
+Pod Operations:
+
+kubectl get pods: List all pods in the current namespace.
+kubectl describe pod <pod-name>: Show details about a pod.
+kubectl logs <pod-name>: Display logs for a pod.
+kubectl exec -it <pod-name> -- /bin/bash: Open a shell in a running pod.
+Deployment Operations:
+
+kubectl get deployments: List all deployments in the current namespace.
+kubectl describe deployment <deployment-name>: Show details about a deployment.
+kubectl scale deployment <deployment-name> --replicas=<num>: Scale a deployment.
+Service Operations:
+
+kubectl get services: List all services in the current namespace.
+kubectl describe service <service-name>: Show details about a service.
+Configuration:
+Contexts:
+
+kubectl config get-contexts: List available contexts.
+kubectl config use-context <context>: Switch to a different context.
+Credentials:
+
+kubectl config view: Display the current kubeconfig settings.
+kubectl config set-credentials <name> --token=<token>: Set user credentials.
+Advanced:
+Port Forwarding:
+
+kubectl port-forward <pod-name> <local-port>:<remote-port>: Forward ports to a pod.
+Resource Definitions:
+
+kubectl get <resource>: List resources (e.g., deployments, pods, services).
+kubectl explain <resource>: Show the resource's fields and their types.
+Deleting Resources:
+
+kubectl delete <resource> <name>: Delete a resource by name.
+Apply Configurations:
+
+kubectl apply -f <filename.yaml>: Apply a configuration file.
+Rolling Updates/Rollbacks:
+
+kubectl set image deployment/<deployment-name> <container-name>=<new-image>: Update an image.
+kubectl rollout status deployment/<deployment-name>: Monitor the rollout status.
+kubectl rollout history deployment/<deployment-name>: View rollout history.
+kubectl rollout undo deployment/<deployment-name>: Rollback to the previous deployment.
